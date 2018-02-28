@@ -1,0 +1,251 @@
+.lc-calendar-root {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+
+    .switcher-box {
+        padding: 14px 20px 8px 20px;;
+        user-select: none;
+        .curr-date {
+            margin: 0 8px;
+            width: 115px;
+            display: inline-block;
+            text-align: center;
+        }
+        .prev-btn,
+        .next-btn,
+        .now-btn {
+            display: inline-block;
+            border: solid 1px #ccc;
+            border-radius: 2px;
+            padding: 0px 4px;
+            cursor: pointer;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        .prev-btn:after {
+            content: '<'
+        }
+        .next-btn:after {
+            content: '>'
+        }
+        .now-btn {
+            margin-left: 15px;
+        }
+    }
+}
+
+// Header
+.lc-calendar-root {
+    .lc-header {
+        background-color: #eee;
+        box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+        padding: 40px 20px 20px 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: relative;
+
+        .lc-event-form {
+            transform: none;
+        }
+        
+        .lc-header-tools {
+            width: 100%;
+        }
+
+        .button-blue {
+            height: 30px;
+            border: solid 1px #006eca;
+            background-color: #006eca;
+            color: #fff;
+            padding: 6px 9px;
+            text-shadow: 0px 1px 1px rgba(80, 80, 80, 1);
+            border-radius: 2px;
+            margin-right: 10px;
+            &:hover {
+                background-color: lighten(#006eca, 5%);
+            }
+            &:active {
+                background-color: darken(#006eca, 5%);
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .serch-indput {
+            float: right;
+            height: 26px;
+            padding: 0 9px;
+            width: 250px;
+        }
+        .serch-result {
+            box-sizing: border-box;
+            padding: 5px 0;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            width: 272px;
+            background-color: #fff;
+            border: solid 1px #ccc;
+            padding: 9px;
+            .serch-result-item {
+                border-bottom: solid 1px #ccc;
+                font-size: 14px;
+                cursor: pointer;
+                span {
+                    font-size: 11px;
+                }
+                &:hover {
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+    }
+}
+
+.lc-calendar-root {
+    .lc-calendar {
+        display: flex;
+        flex-direction: column;
+        .lc-calendar-week {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            border-top: solid 1px #ddd;
+            min-width: 840px;
+            &:last-child {
+                border-bottom: solid 1px #ddd;
+            }
+        }
+        .lc-calendar-day {
+            width: 100%;
+            height: 120px;
+            border-left: solid 1px #ddd;
+            cursor: pointer;
+            overflow: hidden;
+            &:last-child {
+                border-right: solid 1px #ddd;
+            }
+            &.has-events {
+                background-color: #c1e4ff;
+            }
+        }
+        .lc-calendar-date {
+            color: #666;
+            font-size: 12px;
+            padding: 6px 6px 10px 6px;
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
+        }
+        .lc-calendar-events {
+            color: #666;
+        }
+        .lc-calendar-event {
+            box-sizing: border-box;
+            padding: 6px;
+        }
+    }
+}
+
+.lc-calendar-root {
+    .lc-modal-shadow {
+        background-color: rgba(0,0,0,0.5);
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .lc-modal {
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 270px;
+        position: relative;
+        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+        background-color: #fff;
+        padding: 40px 15px 15px 15px;
+        transform: translate(-50%, -50%);
+
+
+        .close {
+            position: absolute;
+            display: block;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            z-index: 20;
+            &:after {
+                content: 'x'
+            }
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            line-height: 20px;
+            border: solid 1px #ccc;
+            padding: 2px 6px;
+            box-sizing: border-box;
+
+            &.has-error {
+                border: solid 1px #ff0000;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            height: 100px;
+            margin-top: 25px;
+            resize: none;
+            border: solid 1px #ccc;
+        }
+
+        input,
+        textarea {
+            &.has-error {
+                border: solid 1px #ff0000;
+            }
+        }
+    }
+}
+.lc-calendar-root {
+    .lc-event-list {
+        position: absolute;
+        top: 30px;
+        left: 15px;
+        right: 15px;
+        bottom: 40px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .lc-event-list-footer {
+        position: absolute;
+        height: 40px;
+        bottom: 0;
+        button {
+            margin-left: 10px;
+        }        
+    }
+    .lc-event-list-item {
+        font-size: 12px;
+        box-sizing: border-box;
+        border-bottom: solid 1px #ccc;
+        padding: 5px;
+        cursor: pointer;
+        span {
+            color: #006eca;
+        }
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+}
